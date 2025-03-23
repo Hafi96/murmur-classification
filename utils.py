@@ -3,8 +3,7 @@ import os
 import torch
 from helper_code import find_patient_files, load_patient_data, get_num_locations, get_locations, get_murmur, load_wav_file
 from helper_code import compare_strings, get_age, get_sex, get_height, get_weight, get_pregnancy_status
-
-# Updated mappings to remove "Unknown" and outcome-related labels
+# label mapping
 murmur_mapping_str2int = {'Present': 0, 'Absent': 1}
 murmur_mapping_int2str = {0: 'Present', 1: 'Absent'}
 
@@ -54,7 +53,7 @@ def get_patient_recording_files(data, num_locations):
             break
     return recording_files
 
-def load_recordings_with_labels(data_folder, included_labels=['Present', 'Absent']):  # Removed 'Unknown'
+def load_recordings_with_labels(data_folder, included_labels=['Present', 'Absent']): 
     patient_files_arr, recording_files, murmurs = [], [], []
     patient_files = find_patient_files(data_folder)
     for pf in patient_files:

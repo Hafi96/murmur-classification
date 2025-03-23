@@ -146,7 +146,6 @@ def sanitize_scalar_value(x):
     x = str(x).replace('"', '').replace("'", "").strip()
     return float(x) if is_finite_number(x) else 0.0
 
-# Save Challenge outputs.
 # Save Challenge outputs (Only "Present" and "Absent" with Correct Formatting)
 def save_challenge_outputs(filename, patient_id, classes, labels, probabilities):
     patient_string = f'#{patient_id}'

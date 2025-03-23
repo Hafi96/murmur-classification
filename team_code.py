@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-# Edit this script to add your team's code. Some functions are *required*, but you can edit most parts of the required functions,
-# change or remove non-required functions, and add your own functions.
 
 ################################################################################
 #
@@ -22,11 +20,6 @@ from HMSSNet import Hierachical_MS_Net
 from utils import AverageMeter, calc_accuracy, load_patient_features
 from loss import LabelSmoothingCrossEntropy
 
-################################################################################
-#
-# Required functions. Edit these functions to add your code, but do not change the arguments.
-#
-################################################################################
 
 # Train your model.
 def train_challenge_model(data_folder, model_folder, verbose):
@@ -69,8 +62,7 @@ def train_challenge_model(data_folder, model_folder, verbose):
             print('\n')
         save_challenge_model(model_folder, murmur_classifier, file_name='murmur_classifier')
         
-    # Stage 2: Train the classifier for Outcome classification
- 
+    
         
     if verbose:
         print('Done.')
@@ -144,7 +136,7 @@ def recording_murmur_diagnose(multi_scale_specs, murmur_classifier, murmur_class
 
 @torch.no_grad()
 def run_challenge_model(model, data, recordings, verbose):
-    (device, preprocessor, murmur_classifier, murmur_classes) = model  # Removed outcome-related components
+    (device, preprocessor, murmur_classifier, murmur_classes) = model  
     interval = 1.0
     recording_murmur_counts = np.zeros(len(murmur_classes), dtype=np.int_)
 
@@ -166,21 +158,16 @@ def run_challenge_model(model, data, recordings, verbose):
 
     return classes, murmur_labels, probabilities
     
-# ################################################################################
-#
-# Optional functions. You can change or remove these functions and/or add new functions.
-#
-################################################################################
 
-# Save your trained model.
+
+# Save the trained model.
 def save_challenge_model(model_folder, model, file_name='murmur_classifier'):
     torch.save({
         'model_state_dict': model.state_dict(),
     }, os.path.join(model_folder, f'{file_name}.pth'))
     
 
-# Load your trained model. This function is *required*. You should edit this function to add your code, but do *not* change the
-# arguments of this function.
+
 def load_challenge_model(model_folder, verbose):
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
 

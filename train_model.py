@@ -1,12 +1,8 @@
 #!/usr/bin/env python
 
-# Do *not* edit this script. Changes will be discarded so that we can process the models consistently.
-
-# This file contains functions for training models for the 2022 Challenge. You can run it as follows:
-#
 #   python train_model.py data model
 #
-# where 'data' is a folder containing the Challenge data and 'model' is a folder for saving your model.
+# where 'data' is a folder containing the dataset for training and 'model' is a folder for saving the model.
 
 import sys
 from helper_code import is_integer
@@ -29,4 +25,4 @@ if __name__ == '__main__':
     else:
         verbose = 1
 
-    train_challenge_model(data_folder, model_folder, verbose) ### Teams: Implement this function!!!
+    train_challenge_model(data_folder, model_folder, verbose) 

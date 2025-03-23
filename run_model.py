@@ -1,13 +1,10 @@
 #!/usr/bin/env python
 
-# Do *not* edit this script. Changes will be discarded so that we can process the models consistently.
 
-# This file contains functions for running models for the 2022 Challenge. You can run it as follows:
+#   python run_model.py model test_data outputs
 #
-#   python run_model.py model data outputs
-#
-# where 'model' is a folder containing the your trained model, 'data' is a folder containing the Challenge data, and 'outputs' is a
-# folder for saving your model's outputs.
+# where 'model' is a folder containing the your trained model, 'data' is a folder containing the hidden test data, and 'outputs' is a
+#folder for saving the model's outputs.
 
 import numpy as np, os, sys
 from helper_code import *
@@ -23,7 +20,7 @@ def run_model(model_folder, data_folder, output_folder, allow_failures, verbose)
     model_folder = model_folder
     data_folder = data_folder
     output_folder = output_folder
-    model = load_challenge_model(model_folder, verbose) ### Teams: Implement this function!!!
+    model = load_challenge_model(model_folder, verbose) 
 
     # Find the patient data files.
     patient_files = find_patient_files(data_folder)
