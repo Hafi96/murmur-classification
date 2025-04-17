@@ -45,7 +45,7 @@ def find_patient_files(data_folder):
         filenames = sorted(filenames, key=lambda f: int(os.path.splitext(os.path.basename(f))[0]))
 
     return filenames
-# Load Challenge outputs.
+
 # Load Challenge outputs.
 def load_challenge_outputs(filename):
     with open(filename, 'r') as f:
